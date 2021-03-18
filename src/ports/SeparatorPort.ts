@@ -1,11 +1,15 @@
-import { Colors, Controls } from "flume";
+import { Colors, Controls } from 'flume'
 
-import { PortProps } from '../types'
-import { mergeAcceptTypes } from '../utils'
+import { PortType, PortProps } from '../types'
+import { mergeDeep } from '../utils'
 
-const separatorPort = ({ type = "separator", name = "separator", label = "Separator", color = Colors.green, acceptTypes }: PortProps) => ({
-   type, name, label, color,
-   acceptTypes: mergeAcceptTypes([type], acceptTypes),
+export const portType: PortType = 'separator'
+
+const defaultProps: PortProps = {
+   type: portType,
+   name: portType,
+   acceptTypes: [portType],
+   color: Colors.green,
    hidePort: true,
    controls: [
       Controls.text({
@@ -13,6 +17,8 @@ const separatorPort = ({ type = "separator", name = "separator", label = "Separa
          label: "Text"
       })
    ]
-})
+}
 
-export default separatorPort;
+const separatorPort = (customizations?: PortProps) => mergeDeep(defaultProps, customizations)
+
+export default separatorPort

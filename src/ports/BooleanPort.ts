@@ -1,10 +1,17 @@
-import { Colors } from "flume";
+import { Colors } from 'flume'
 
-import { PortProps } from '../types'
-import { mergeAcceptTypes } from '../utils'
+import { PortType, PortProps } from '../types'
+import { mergeDeep } from '../utils'
 
-const booleanPort = ({ type = "boolean", name = "boolean", acceptTypes, color = Colors.purple }: PortProps) => ({
-   type, name, color, acceptTypes: mergeAcceptTypes([type], acceptTypes)
-})
+export const portType: PortType = 'boolean'
 
-export default booleanPort;
+const defaultProps: PortProps = {
+   type: portType,
+   name: portType,
+   acceptTypes: [portType],
+   color: Colors.purple
+}
+
+const booleanPort = (customizations?: PortProps) => mergeDeep(defaultProps, customizations)
+
+export default booleanPort

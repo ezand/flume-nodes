@@ -1,10 +1,17 @@
-import { Colors } from "flume";
+import { Colors } from 'flume'
 
-import { PortProps } from '../types'
-import { mergeAcceptTypes } from '../utils'
+import { PortType, PortProps } from '../types'
+import { mergeDeep } from '../utils'
 
-const numberPort = ({ type = "number", name = "number", acceptTypes, color = Colors.orange }: PortProps) => ({
-   type, name, color, acceptTypes: mergeAcceptTypes([type], acceptTypes)
-})
+export const portType: PortType = 'number'
 
-export default numberPort;
+const defaultProps: PortProps = {
+   type: portType,
+   name: portType,
+   acceptTypes: [portType],
+   color: Colors.orange
+}
+
+const numberPort = (customizations?: PortProps) => mergeDeep(defaultProps, customizations)
+
+export default numberPort

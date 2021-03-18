@@ -1,7 +1,13 @@
+export type PortType = 'array' | 'boolean' | 'generic' | 'number' | 'separator' | 'string'
+
 export interface PortProps {
-   type?: string
+   type?: PortType
    name?: string
    label?: string
    acceptTypes?: string[]
-   color?: string
+   color?: string,
+   hidePort?: boolean,
+   controls?: any // TODO type this
 }
+
+export type PortCustomizations = Partial<Record<PortType, PortProps>>
