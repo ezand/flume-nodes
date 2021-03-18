@@ -1,14 +1,14 @@
 const toDoubleNode = {
   type: "coerceDouble",
   label: "To Double",
-  inputs: (ports) => [
+  inputs: (ports: any) => [
     ports.generic({
       name: "input",
       label: "Input",
     }),
   ],
-  outputs: (ports) => [
-    ports.string({
+  outputs: (ports: any) => [
+    ports.number({
       name: "output",
       label: "Output",
     }),

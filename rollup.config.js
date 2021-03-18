@@ -1,10 +1,11 @@
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import babel from "@rollup/plugin-babel";
+import typescript from "rollup-plugin-typescript2";
 
 import pkg from "./package.json";
 
-const input = ["src/index.js"];
+const input = ["src/index.ts"];
 
 const globals = {
   flume: "flume",
@@ -16,6 +17,7 @@ export default [
     input,
     plugins: [
       nodeResolve(),
+      typescript(),
       babel({
         babelHelpers: "bundled",
       }),
@@ -35,7 +37,7 @@ export default [
   // ESM and CJS
   {
     input,
-    plugins: [nodeResolve()],
+    plugins: [typescript(), nodeResolve()],
     external: ["flume"],
     output: [
       {

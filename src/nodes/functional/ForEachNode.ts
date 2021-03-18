@@ -1,13 +1,13 @@
 const forEachNode = {
   type: "forEach",
   label: "For Each",
-  inputs: (ports) => [
+  inputs: (ports: any) => [
     ports.array({
       name: "items",
       label: "Items",
     }),
   ],
-  outputs: (ports) => [
+  outputs: (ports: any) => [
     ports.generic({
       name: "item",
       label: "Item",

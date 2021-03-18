@@ -3,7 +3,7 @@ import { Controls } from "flume";
 const staticValueNode = {
   type: "staticValue",
   label: "Static Value",
-  inputs: (ports) => [
+  inputs: (_ports: any) => [
     {
       type: "staticValue",
       name: "staticValue",
@@ -17,7 +17,7 @@ const staticValueNode = {
       ],
     },
   ],
-  outputs: (ports) => [
+  outputs: (ports: any) => [
     ports.string({
       name: "value",
       label: "Value",

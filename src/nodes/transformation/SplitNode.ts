@@ -1,14 +1,14 @@
 const splitNode = {
   type: "split",
   label: "Split",
-  inputs: (ports) => [
+  inputs: (ports: any) => [
     ports.separator(),
     ports.string({
       name: "value",
       label: "Value",
     }),
   ],
-  outputs: (ports) => [
+  outputs: (ports: any) => [
     ports.array({
       name: "array",
       label: "Array",

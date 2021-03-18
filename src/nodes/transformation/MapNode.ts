@@ -3,7 +3,7 @@ import { Controls } from "flume";
 const mapNode = {
   type: "map",
   label: "Map",
-  inputs: (ports) => [
+  inputs: (ports: any) => [
     {
       type: "mapDef",
       name: "map",
@@ -21,7 +21,7 @@ const mapNode = {
       label: "Input",
     }),
   ],
-  outputs: (ports) => [
+  outputs: (ports: any) => [
     ports.string({
       name: "output",
       label: "Output",

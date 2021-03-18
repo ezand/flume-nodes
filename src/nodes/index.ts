@@ -9,7 +9,7 @@ import MapNode from "./transformation/MapNode";
 import ForEachNode from "./functional/ForEachNode";
 import StaticValueNode from "./functional/StaticValueNode";
 
-const registerNodes = (config) => {
+const registerNodes = (config: any) => {
   config.addNodeType(JoinNode);
   config.addNodeType(SplitNode);
   config.addNodeType(ToStringNode);

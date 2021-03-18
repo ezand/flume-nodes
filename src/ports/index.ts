@@ -5,7 +5,7 @@ import NumberPort from "./NumberPort";
 import ArrayPort from "./ArrayPort";
 import SeparatorPort from "./SeparatorPort";
 
-const registerPorts = (config) => {
+const registerPorts = (config: any) => {
   config.addPortType(GenericPort);
   config.addPortType(BooleanPort);
   config.addPortType(StringPort);

@@ -3,7 +3,7 @@ import { Controls } from "flume";
 const pickNode = {
   type: "pick",
   label: "Pick",
-  inputs: (ports) => [
+  inputs: (ports: any) => [
     {
       type: "splitIndex",
       name: "index",
@@ -21,7 +21,7 @@ const pickNode = {
       label: "Array",
     }),
   ],
-  outputs: (ports) => [
+  outputs: (ports: any) => [
     ports.generic({
       name: "value",
       label: "Value",
