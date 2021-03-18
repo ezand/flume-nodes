@@ -1,5 +1,10 @@
-const toIntegerNode = {
-  type: "coerceInteger",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'coerceInteger'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "To Integer",
   inputs: (ports: any) => [
     ports.generic({
@@ -15,4 +20,6 @@ const toIntegerNode = {
   ],
 };
 
-export default toIntegerNode;
+const toIntegerNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default toIntegerNode

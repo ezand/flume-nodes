@@ -11,3 +11,15 @@ export interface PortProps {
 }
 
 export type PortCustomizations = Partial<Record<PortType, PortProps>>
+
+export type NodeType = 'join' | 'map' | 'pick' | 'split' | 'coerceBoolean' |
+   'coerceDouble' | 'coerceInteger' | 'coerceString' | 'forEach' | 'staticValue'
+
+export interface NodeProps {
+   type?: NodeType
+   label?: string
+   inputs?(ports: any): any[] // TODO type this
+   outputs?(ports: any): any[] // TOOD type this
+}
+
+export type NodeCustomizations = Partial<Record<NodeType, NodeProps>>

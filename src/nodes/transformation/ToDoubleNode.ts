@@ -1,5 +1,10 @@
-const toDoubleNode = {
-  type: "coerceDouble",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'coerceDouble'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "To Double",
   inputs: (ports: any) => [
     ports.generic({
@@ -15,4 +20,6 @@ const toDoubleNode = {
   ],
 };
 
-export default toDoubleNode;
+const toDoubleNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default toDoubleNode

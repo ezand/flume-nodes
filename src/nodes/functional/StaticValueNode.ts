@@ -1,7 +1,12 @@
 import { Controls } from "flume";
 
-const staticValueNode = {
-  type: "staticValue",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'staticValue'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "Static Value",
   inputs: (_ports: any) => [
     {
@@ -25,4 +30,6 @@ const staticValueNode = {
   ],
 };
 
-export default staticValueNode;
+const staticValueNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default staticValueNode

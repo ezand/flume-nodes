@@ -1,7 +1,12 @@
 import { Controls } from "flume";
 
-const pickNode = {
-  type: "pick",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'pick'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "Pick",
   inputs: (ports: any) => [
     {
@@ -29,4 +34,6 @@ const pickNode = {
   ],
 };
 
-export default pickNode;
+const pickNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default pickNode

@@ -1,5 +1,10 @@
-const toBooleanNode = {
-  type: "coerceBoolean",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'coerceBoolean'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "To Boolean",
   inputs: (ports: any) => [
     ports.generic({
@@ -15,4 +20,7 @@ const toBooleanNode = {
   ],
 };
 
-export default toBooleanNode;
+const toBooleanNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default toBooleanNode
+

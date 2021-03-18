@@ -1,7 +1,12 @@
 import { Controls } from "flume";
 
-const mapNode = {
-  type: "map",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'map'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "Map",
   inputs: (ports: any) => [
     {
@@ -29,4 +34,6 @@ const mapNode = {
   ],
 };
 
-export default mapNode;
+const mapNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default mapNode

@@ -1,3 +1,15 @@
+import { NodeProps } from "./types";
+
+const isEmptyObject = (obj: Object) => {
+   return obj && Object.keys(obj).length === 0 && obj.constructor === Object
+ }
+
+const pick = (obj: any, keys: string[]) => {
+   return keys
+     .map((k) => (k in obj ? { [k]: obj[k] } : {}))
+     .reduce((res, o) => Object.assign(res, o), {})
+ }
+
 const mergeDeep = (target: any, source: any, isMergingArrays = false) => {
    if (!source && !target) return {}
    if (!source) return target
@@ -43,6 +55,36 @@ const mergeDeep = (target: any, source: any, isMergingArrays = false) => {
    return target;
 };
 
+const mergeNodeProps = (x?: NodeProps, y?: NodeProps) => {
+   const removeInputAndOutput = (z: any) => {
+      const {inputs, outputs, ...basic} = z || { inputs: [], outputs: [] }
+      return basic
+   }
+
+   const mergeInputsOutputs = (x: any, y: any) => {
+      if (!x && !y) return (_ports: any) => []
+      if (!x) return (ports: any) => y(ports)
+      if (!y) return (ports: any) => x(ports)
+   
+      return (ports: any) => x(ports).concat(y(ports))
+   }
+   
+   const basicX = removeInputAndOutput(x)
+   const basicY = removeInputAndOutput(y)
+
+   const {inputs: inputsX, outputs: outputsX} = pick(x, ['inputs', 'outputs'])
+   const {inputs: inputsY, outputs: outputsY} = pick(y, ['inputs', 'outputs'])
+
+   return {
+      ...mergeDeep(basicX, basicY), 
+      ...{ inputs: mergeInputsOutputs(inputsX, inputsY)}, 
+      ...{ outputs:  mergeInputsOutputs(outputsX, outputsY)}
+   }
+}
+
 export {
-   mergeDeep
+   isEmptyObject,
+   pick,
+   mergeDeep,
+   mergeNodeProps
 }

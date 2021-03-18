@@ -5,9 +5,9 @@ import NumberPort, { portType as numberPortType } from "./NumberPort"
 import ArrayPort, { portType as arrayPortType } from "./ArrayPort"
 import SeparatorPort, { portType as separatorPortType } from "./SeparatorPort"
 
-import { PortCustomizations } from "../types"
+import { PortType, PortCustomizations } from "../types"
 
-const getCustomizations = (key: string, customizations?: PortCustomizations) =>
+const getCustomizations = (key: PortType, customizations?: PortCustomizations) =>
    customizations && customizations[key] ? customizations[key] : {}
 
 const registerPorts = (config: any, customizations?: PortCustomizations) => {

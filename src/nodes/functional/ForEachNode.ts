@@ -1,5 +1,10 @@
-const forEachNode = {
-  type: "forEach",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'forEach'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "For Each",
   inputs: (ports: any) => [
     ports.array({
@@ -15,4 +20,6 @@ const forEachNode = {
   ],
 };
 
-export default forEachNode;
+const forEachNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default forEachNode

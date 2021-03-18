@@ -1,5 +1,10 @@
-const toStringNode = {
-  type: "coerceString",
+import { NodeType, NodeProps } from '../../types'
+import { mergeNodeProps } from '../../utils'
+
+export const nodeType: NodeType = 'coerceString'
+
+const defaultProps: NodeProps = {
+  type: nodeType,
   label: "To String",
   inputs: (ports: any) => [
     ports.generic({
@@ -15,4 +20,6 @@ const toStringNode = {
   ],
 };
 
-export default toStringNode;
+const toStringNode = (customizations?: NodeProps) => mergeNodeProps(defaultProps, customizations)
+
+export default toStringNode
