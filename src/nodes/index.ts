@@ -27,4 +27,16 @@ const registerNodes = (config: any, customizations?: NodeCustomizations) => {
    config.addNodeType(StaticValueNode(getCustomizations(staticValueNodeType, customizations)));
 }
 
-export { registerNodes };
+export {
+   JoinNode,
+   SplitNode,
+   ToStringNode,
+   ToBooleanNode,
+   ToIntegerNode,
+   ToDoubleNode,
+   PickNode,
+   MapNode,
+   ForEachNode,
+   StaticValueNode,
+   registerNodes
+};
