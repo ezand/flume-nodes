@@ -1,4 +1,5 @@
 import JoinNode, { nodeType as joinNodeType } from "./transformation/JoinNode"
+import JoinArrayNode, { nodeType as joinArrayNodeType } from "./transformation/JoinArrayNode"
 import SplitNode, { nodeType as splitNodeType } from "./transformation/SplitNode"
 import ToStringNode, { nodeType as toStringNodeType } from "./transformation/ToStringNode"
 import ToBooleanNode, { nodeType as toBooleanNodeType } from "./transformation/ToBooleanNode"
@@ -16,6 +17,7 @@ const getCustomizations = (key: NodeType, customizations?: NodeCustomizations) =
 
 const registerNodes = (config: any, customizations?: NodeCustomizations) => {
    config.addNodeType(JoinNode(getCustomizations(joinNodeType, customizations)))
+   config.addNodeType(JoinArrayNode(getCustomizations(joinArrayNodeType, customizations)))
    config.addNodeType(SplitNode(getCustomizations(splitNodeType, customizations)))
    config.addNodeType(ToStringNode(getCustomizations(toStringNodeType, customizations)))
    config.addNodeType(ToBooleanNode(getCustomizations(toBooleanNodeType, customizations)))

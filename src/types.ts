@@ -12,7 +12,7 @@ export interface PortProps {
 
 export type PortCustomizations = Partial<Record<PortType, PortProps>>
 
-export type NodeType = 'join' | 'map' | 'pick' | 'split' | 'coerceBoolean' |
+export type NodeType = 'join' | 'joinArray' | 'map' | 'pick' | 'split' | 'coerceBoolean' |
    'coerceDouble' | 'coerceInteger' | 'coerceString' | 'forEach' | 'staticValue'
 
 export interface NodeProps {

@@ -8,6 +8,7 @@ export const portType: PortType = 'separator'
 const defaultProps: PortProps = {
    type: portType,
    name: portType,
+   label: 'Separator',
    acceptTypes: [portType],
    color: Colors.green,
    hidePort: true,
