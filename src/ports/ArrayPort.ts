@@ -1,9 +1,10 @@
-import { Colors } from "flume";
+import { Colors } from "flume"
 
-const arrayPort = {
-  type: "array",
-  name: "array",
-  color: Colors.yellow,
-};
+import { PortProps } from '../types'
+import { mergeAcceptTypes } from '../utils'
 
-export default arrayPort;
+const arrayPort = ({ type = "array", name = "array", acceptTypes, color = Colors.yellow }: PortProps) => ({
+   type, name, color, acceptTypes: mergeAcceptTypes([type], acceptTypes)
+})
+
+export default arrayPort
