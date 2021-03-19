@@ -10,7 +10,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "publish-local": "yarn publish --registry http://localhost:4873"
+    "publish-local": "yarn publish --registry http://localhost:4873",
+    "upgrade-yarn": "yarn set version latest"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
