@@ -11,7 +11,8 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "publish-local": "yarn publish --registry http://localhost:4873",
-    "upgrade-yarn": "yarn set version latest"
+    "upgrade-yarn": "yarn set version latest",
+    "add-vscode-support": "yarn dlx @yarnpkg/pnpify --sdk vscode"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
