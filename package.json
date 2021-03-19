@@ -1,6 +1,6 @@
 {
   "name": "@ezand/flume-nodes",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "build": "rollup -c",
-    "dev": "rollup -c -w"
+    "dev": "rollup -c -w",
+    "publish-local": "yarn publish --registry http://localhost:4873"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
